@@ -1,7 +1,7 @@
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadata: any = {
   title: "About Us Page",
+  // title: {absolute: "About Us Page"}
   description: "Created By Known Technical",
 };
 
