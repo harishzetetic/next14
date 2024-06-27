@@ -1,7 +1,11 @@
+import { NextRequest } from "next/server";
 import { products } from "./data";
 
-export async function GET(){
-    return Response.json(products)
+export async function GET(request: NextRequest){
+    const searchParams = request.nextUrl.searchParams;
+    const query=searchParams.get('query');
+    const filterProducts=query ? products.filter(product => product.title.includes(query)) : products;
+    return Response.json(filterProducts)
 }
 
 export async function POST(request:Request){
