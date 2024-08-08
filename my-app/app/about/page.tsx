@@ -1,12 +1,12 @@
-
-export const metadata: any = {
-  title: "About Us Page",
-  // title: {absolute: "About Us Page"}
-  description: "Created By Known Technical",
-};
+import { cookies } from "next/headers";
 
 export default function About() {
-  return (
-    <h1>About Us</h1>
+  const cookieStore = cookies();
+  const theme = cookieStore.get('theme');
+  console.log(theme)
+  console.log('About us page rendered')
+  return (<>
+    <h1>About Us {new Date().toLocaleTimeString()}</h1>
+  </>
   );
 }

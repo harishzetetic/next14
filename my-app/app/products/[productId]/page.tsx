@@ -1,10 +1,17 @@
+import { Suspense } from "react"
+import { ReviewComponent } from "./review"
 
 
-const ProductDetails = ({params}:any)=>{
+const ProductDetails = async ({params}:any)=>{
     if(params.productId == 1) {
         throw new Error('Something went wrong with this product')
     }
-    return <><h1>Here we have product details of id {params.productId}</h1></>
+    
+    return <>
+    <h1>You are viewing the product with id {params.productId}</h1>
+    <Suspense fallback={<p>Data loading...</p>}><ReviewComponent /></Suspense>
+    
+    </>
 }
 
 export default ProductDetails
